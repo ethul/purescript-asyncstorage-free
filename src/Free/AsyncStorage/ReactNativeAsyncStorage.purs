@@ -5,7 +5,7 @@ import Prelude
 import Control.Monad.Aff (Aff)
 import Control.Monad.Aff.Compat (EffFnAff, fromEffFnAff)
 
-import Data.Newtype (unwrap)
+import Data.Newtype (unwrap, wrap)
 import Data.Nullable (toMaybe)
 
 import Free.AsyncStorage (AsyncStorageF(..))
@@ -13,7 +13,7 @@ import Free.AsyncStorage (AsyncStorageF(..))
 reactNativeAsyncStorage :: forall eff. AsyncStorageF ~> Aff eff
 reactNativeAsyncStorage =
   case _ of
-       GetItem key k -> k <<< toMaybe <$> asyncStorage "getItem" [ unwrap key ]
+       GetItem key k -> k <<< map wrap <<< toMaybe <$> asyncStorage "getItem" [ unwrap key ]
 
        SetItem key value a -> a <$ asyncStorage "setItem" [ unwrap key, unwrap value ]
 
