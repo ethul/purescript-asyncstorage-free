@@ -1,6 +1,6 @@
 {
   "name": "purescript-asyncstorage-free",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "purs:compile": "purs compile 'src/**/*.purs' 'bower_components/purescript-*/src/**/*.purs'",
