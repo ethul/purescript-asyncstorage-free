@@ -8,5 +8,11 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/ethul/purescript-asyncstorage-free.git"
+  },
+  "dependencies": {
+    "purescript-free": "^4.3.0",
+    "purescript-argonaut-generic": "^1.2.0",
+    "purescript-aff": "^4.1.0",
+    "purescript-nullable": "^3.0.0"
   }
 }
