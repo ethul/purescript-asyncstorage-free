@@ -35,6 +35,8 @@ data AsyncStorageF a
   | SetItem Key Value a
   | RemoveItem Key a
 
+derive instance functorAsyncStorageF :: Functor AsyncStorageF
+
 getItem :: Key -> AsyncStorage (Maybe Value)
 getItem key = liftF (GetItem key id)
 
